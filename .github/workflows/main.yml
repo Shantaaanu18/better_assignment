@@ -1,9 +1,10 @@
 name: Node.js CI/CD
 
 on:
+ workflowdispatch:
   push:
     branches:
-      - main   # runs on push to main branch
+      - main   
 
 jobs:
   build-and-deploy:
@@ -30,4 +31,4 @@ jobs:
     - name: Deploy
       run: |
         echo "Add your deployment script here"
-        # For example, push to server via scp/ssh, or deploy to Vercel/Netlify
+        
