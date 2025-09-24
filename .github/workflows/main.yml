@@ -1,34 +1,26 @@
 name: Node.js CI/CD
 
 on:
- workflowdispatch:
+  workflow_dispatch:
   push:
     branches:
-      - main   
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test || echo "No tests available"
-
-    - name: Build (if needed)
-      run: npm run build || echo "No build step"
-
-    - name: Deploy
-      run: |
-        echo "Add your deployment script here"
-        
+      - name: Run tests
+        run: npm test || echo "No tests available"
